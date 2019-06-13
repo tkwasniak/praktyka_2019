@@ -1,0 +1,2 @@
+C:\Praktyki\MovieRental\MovieRental.Web\obj\Debug\MovieRental.Web.csprojAssemblyReference.cache
+C:\Praktyki\MovieRental\MovieRental.Web\obj\Debug\MovieRental.Web.csproj.CoreCompileInputs.cache

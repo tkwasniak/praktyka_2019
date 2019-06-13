@@ -1,0 +1,6 @@
+C:\Praktyki\MovieRental\MovieRental.Core.Contracts\bin\Debug\MovieRental.Core.Contracts.dll
+C:\Praktyki\MovieRental\MovieRental.Core.Contracts\bin\Debug\MovieRental.Core.Contracts.pdb
+C:\Praktyki\MovieRental\MovieRental.Core.Contracts\obj\Debug\MovieRental.Core.Contracts.csprojAssemblyReference.cache
+C:\Praktyki\MovieRental\MovieRental.Core.Contracts\obj\Debug\MovieRental.Core.Contracts.csproj.CoreCompileInputs.cache
+C:\Praktyki\MovieRental\MovieRental.Core.Contracts\obj\Debug\MovieRental.Core.Contracts.dll
+C:\Praktyki\MovieRental\MovieRental.Core.Contracts\obj\Debug\MovieRental.Core.Contracts.pdb
