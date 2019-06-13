@@ -15,41 +15,50 @@ namespace MovieRental.Data.DAL.Repositories
         protected readonly DbContext context;
         protected readonly DbSet<T> dbSet;
 
-        public DbContext Conext => this.context;
-
+        public DbContext Context
+        {
+            get
+            {
+                return this.context;
+            }
+        }
 
         public GenericRepository(DbContext context)
         {
             this.context = context;
-            this.dbSet = context.Set<T>();
+            this.dbSet = context.Set<T>(); // WAZNE
         }
-
 
 
         public void Add(T entity)
         {
-            throw new NotImplementedException();
+            dbSet.Add(entity);
         }
 
+        public T GetById(object id)
+        {
+            return dbSet.Find(id);
+        }
 
         public void Delete(T entity)
         {
-            throw new NotImplementedException();
+            dbSet.Remove(entity);
         }
 
         public void Delete(object id)
         {
-            throw new NotImplementedException();
+            T entity = dbSet.Find(id);
+            Delete(entity);
         }
 
         public IQueryable<T> Find(Expression<Func<T, bool>> predicate)
         {
-            throw new NotImplementedException();
+            return dbSet.Where(predicate);
         }
 
         public IQueryable<T> GetAll()
         {
-            throw new NotImplementedException();
+            return dbSet;
         }
 
         public void Update(T entity)

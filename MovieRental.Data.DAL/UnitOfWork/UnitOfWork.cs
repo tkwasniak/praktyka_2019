@@ -19,7 +19,13 @@ namespace MovieRental.Data.DAL.Repositories
             this.context = new MovieRentalDbContext();
         }
 
-        public MovieRentalDbContext DbContext => context;
+        public MovieRentalDbContext DbContext
+        {
+            get
+            {
+                return this.context;
+            }
+        }
 
         public GenericRepository<Film> FilmRepository
         {

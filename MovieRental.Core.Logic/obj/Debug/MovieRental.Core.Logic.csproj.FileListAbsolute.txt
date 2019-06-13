@@ -10,3 +10,6 @@ C:\Praktyki\MovieRental\MovieRental.Core.Logic\obj\Debug\MovieRental.Core.Logic.
 C:\Praktyki\MovieRental\MovieRental.Core.Logic\obj\Debug\MovieRental.Core.Logic.csproj.CopyComplete
 C:\Praktyki\MovieRental\MovieRental.Core.Logic\obj\Debug\MovieRental.Core.Logic.dll
 C:\Praktyki\MovieRental\MovieRental.Core.Logic\obj\Debug\MovieRental.Core.Logic.pdb
+C:\Praktyki\MovieRental\MovieRental.Core.Logic\bin\Debug\AutoMapper.dll
+C:\Praktyki\MovieRental\MovieRental.Core.Logic\bin\Debug\AutoMapper.pdb
+C:\Praktyki\MovieRental\MovieRental.Core.Logic\bin\Debug\AutoMapper.xml

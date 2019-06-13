@@ -10,10 +10,11 @@ namespace MovieRental.Data.DAL.Repositories
 {
     public interface IGenericRepository<T> where T: class 
     {
-        DbContext Conext { get; }
+        DbContext Context { get; }
 
         IQueryable<T> GetAll();
         IQueryable<T> Find(Expression<Func<T, bool>> predicate);
+        T GetById(object id); //ID nie zawsze musi być integerem
         void Add(T entity);
         void Delete(T entity);
         void Delete(object id);

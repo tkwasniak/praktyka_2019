@@ -1,4 +1,7 @@
-﻿using MovieRental.Data.DAL.Repositories;
+﻿using MovieRental.Core.Logic.Mapper;
+using MovieRental.Core.Logic.Models;
+using MovieRental.Data.DAL.Models;
+using MovieRental.Data.DAL.Repositories;
 
 namespace MovieRental.Core.Logic.Services
 {
@@ -8,10 +11,13 @@ namespace MovieRental.Core.Logic.Services
         {
         }
 
-        public void GetMovies()
+        public void AddNewFilm(FilmModel fm)
         {
-            using (var unitOfWork = new UnitOfWork())
+            using (var unitOfWOrk = new UnitOfWork())
             {
+                Film film = new Film();
+                film = FilmMapper.Default.Map(fm, film);
+                unitOfWOrk.FilmRepository.Add(film);
             }
         }
     }
