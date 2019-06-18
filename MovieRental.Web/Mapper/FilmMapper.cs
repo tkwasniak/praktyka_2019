@@ -14,6 +14,8 @@ namespace MovieRental.Web.Mapper
         {
             cfg.CreateMap<FilmViewModel, FilmModel>();
 
+            cfg.CreateMap<FilmModel, FilmViewModel>();
+
         }).CreateMapper();
     }
 }

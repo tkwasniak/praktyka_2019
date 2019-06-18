@@ -10,3 +10,6 @@ C:\Praktyki\MovieRental\MovieRental.Data.DAL\obj\Debug\MovieRental.Data.DAL.cspr
 C:\Praktyki\MovieRental\MovieRental.Data.DAL\obj\Debug\MovieRental.Data.DAL.csproj.CopyComplete
 C:\Praktyki\MovieRental\MovieRental.Data.DAL\obj\Debug\MovieRental.Data.DAL.dll
 C:\Praktyki\MovieRental\MovieRental.Data.DAL\obj\Debug\MovieRental.Data.DAL.pdb
+C:\Praktyki\MovieRental\MovieRental.Data.DAL\bin\Debug\MovieRental.Core.Contracts.dll
+C:\Praktyki\MovieRental\MovieRental.Data.DAL\bin\Debug\MovieRental.Core.Contracts.pdb
+C:\Praktyki\MovieRental\MovieRental.Data.DAL\bin\Debug\MovieRental.Core.Contracts.dll.config

@@ -14,15 +14,17 @@ namespace MovieRental.Web.Controllers
     {
         private readonly FIlmService filmService;
 
-        public FilmController()
+        public FilmController(FIlmService _fIlmService)
         {
-            filmService = new FIlmService();
+            this.filmService = _fIlmService;
         }
 
         [HttpGet]
         public ActionResult Index()
         {
-            return View();
+            var filmModelList = filmService.GetAllMovies();
+            var filmViewModelList = FilmMapper.Default.Map<IEnumerable<FilmModel>, IEnumerable<FilmViewModel>>(filmModelList);
+            return View(filmViewModelList);
         }
 
         [HttpGet]
@@ -33,7 +35,7 @@ namespace MovieRental.Web.Controllers
 
         [HttpPost]
         public ActionResult AddNewFilm(FilmViewModel fvm)
-        {
+            {
             if (ModelState.IsValid)
             {
                 FilmModel fm = new FilmModel();

@@ -15,6 +15,12 @@ namespace MovieRental.Data.DAL.Repositories
         protected readonly DbContext context;
         protected readonly DbSet<T> dbSet;
 
+        public GenericRepository(DbContext context)
+        {
+            this.context = context;
+            this.dbSet = context.Set<T>(); // WAZNE
+        }
+
         public DbContext Context
         {
             get
@@ -22,13 +28,6 @@ namespace MovieRental.Data.DAL.Repositories
                 return this.context;
             }
         }
-
-        public GenericRepository(DbContext context)
-        {
-            this.context = context;
-            this.dbSet = context.Set<T>(); // WAZNE
-        }
-
 
         public void Add(T entity)
         {
@@ -63,7 +62,28 @@ namespace MovieRental.Data.DAL.Repositories
 
         public void Update(T entity)
         {
-            throw new NotImplementedException();
+            dbSet.Attach(entity); //
+            context.Entry(entity).State = EntityState.Modified;
+        }
+
+        public T Single(Expression<Func<T, bool>> predicate)
+        {
+            return dbSet.Single(predicate);
+        }
+
+        public T SingleOrDefault(Expression<Func<T, bool>> predicate)
+        {
+            return dbSet.SingleOrDefault(predicate);
+        }
+
+        public T First(Expression<Func<T, bool>> predicate)
+        {
+            return dbSet.First(predicate);
+        }
+
+        public T FirstOrDefault(Expression<Func<T, bool>> predicate)
+        {
+            return dbSet.FirstOrDefault(predicate);
         }
     }
 }

@@ -26,5 +26,6 @@ namespace MovieRental.Data.DAL.Models
         }
     
         public virtual DbSet<Film> Films { get; set; }
+        public virtual DbSet<Client> Clients { get; set; }
     }
 }

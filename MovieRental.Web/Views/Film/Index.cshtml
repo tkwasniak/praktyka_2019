@@ -1,17 +1,36 @@
-﻿@{
+﻿@model IEnumerable<MovieRental.Web.Models.FilmViewModel>
+@{
     Layout = null;
 }
 
-<!DOCTYPE html>
-
-<html>
-<head>
-    <meta name="viewport" content="width=device-width" />
-    <title></title>
-</head>
-<body>
+@if (Model.Any())
+{
     <div>
-    
+        <table>
+            <thead>
+                <tr>
+                    <th>Title</th>
+                    <th>Category</th>
+                    <th>Directory</th>
+                    <th>Year</th>
+                    <th>Language</th>
+                    <th>Notes</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var film in Model)
+                {
+                    <tr>
+                        <td>@film.Title</td>
+                        <td>@film.Category</td>
+                        <td>@film.Director</td>
+                        <td>@film.Year</td>
+                        <td>@film.Language</td>
+                        <td>@film.Notes </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
     </div>
-</body>
-</html>
+}
+
