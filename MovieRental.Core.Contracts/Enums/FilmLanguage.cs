@@ -4,10 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MovieRental.Core.Logic.Models
+namespace MovieRental.Core.Contracts.Enums
 {
-    public enum FilmCategory
+    public enum FilmLanguage
     {
-        Horror, Drama, Action, Fantasy, Mystery, Western
+        Polish, Spanish, English, Korean, German, 
     }
 }

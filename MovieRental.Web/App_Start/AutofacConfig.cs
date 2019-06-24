@@ -1,5 +1,6 @@
 ﻿using Autofac;
 using Autofac.Integration.Mvc;
+using MovieRental.Core.Logic.AutofacModule;
 using MovieRental.Core.Logic.Services;
 using System;
 using System.Collections.Generic;
@@ -16,7 +17,8 @@ namespace MovieRental.Web.Autofac
         {
             var builder = new ContainerBuilder();
             builder.RegisterControllers(typeof(MvcApplication).Assembly);
-            builder.RegisterType<FIlmService>(); // czy jest to dobrze?? A jak dla innych projektów w solucji?
+            builder.RegisterType<FilmService>();
+            builder.RegisterModule(new FilmServiceModule());
             var container = builder.Build();
             DependencyResolver.SetResolver(new AutofacDependencyResolver(container));
         }

@@ -1,18 +1,24 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using FluentValidation.Attributes;
+using MovieRental.Core.Contracts.Enums;
+using MovieRental.Core.Contracts.Models;
+using MovieRental.Core.Logic.Validators;
 
 namespace MovieRental.Core.Logic.Models
 {
-    public class FilmModel
+    [Validator(typeof(FilmValidator))]
+    public class FilmModel : IFilmModel
     {
+        public int Id { get; set; }
         public string Title { get; set; }
         public int Year { get; set; }
         public string Director { get; set; }
         public string Language { get; set; }
-        public FilmCategory Category{ get; set; }
-        public string Notes { get; set; }
+        public FilmCategory Category { get; set; }
+        public FilmVersion Version { get; set; }
+
+        public FilmModel()
+        {
+
+        }
     }
 }

@@ -1,35 +1,21 @@
-﻿using MovieRental.Web.Enums;
-using System;
-using System.Collections.Generic;
+﻿using MovieRental.Core.Logic.Models;
 using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Web;
+using MovieRental.Core.Contracts.Models;
+using MovieRental.Core.Contracts.Enums;
+using FluentValidation.Attributes;
+using MovieRental.Core.Logic.Validators;
 
 namespace MovieRental.Web.Models
 {
-    public class FilmViewModel
+    [Validator(typeof(FilmValidator))]
+    public class FilmViewModel : IFilmModel
     {
         public int Id { get; set; }
-
-        [Required]
-        [StringLength(50, ErrorMessage = "Name is too long")]
         public string Title { get; set; }
-
-        [Required]
-        [Range(1900, 2019, ErrorMessage = "Invalid date")]
         public int Year { get; set; }
-
-        [Required]
-        [StringLength(50, ErrorMessage = "Name is too long")]
         public string Director { get; set; }
-
-        [Required]
-        [StringLength(50, ErrorMessage = "Name is too long")]
         public string Language { get; set; }
-
-        [Required]
-        public FilmCategory Category{ get; set; }
-
-        public string Notes { get; set; }
+        public FilmCategory Category { get; set; }
+        public FilmVersion Version { get; set; }
     }
 }

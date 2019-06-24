@@ -20,6 +20,6 @@ namespace MovieRental.Data.DAL.Models
         public string Director { get; set; }
         public string Language { get; set; }
         public string Category { get; set; }
-        public string Notes { get; set; }
+        public string Version { get; set; }
     }
 }

@@ -16,7 +16,7 @@ namespace MovieRental.Web
             routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}",
-                defaults: new { controller = "Film", action = "AddNewFilm", id = UrlParameter.Optional }
+                defaults: new { controller = "Film", action = "Index", id = UrlParameter.Optional }
             );
         }
     }

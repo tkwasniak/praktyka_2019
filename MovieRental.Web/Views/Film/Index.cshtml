@@ -14,7 +14,7 @@
                     <th>Directory</th>
                     <th>Year</th>
                     <th>Language</th>
-                    <th>Notes</th>
+                    <th>Version</th>
                 </tr>
             </thead>
             <tbody>
@@ -26,11 +26,28 @@
                         <td>@film.Director</td>
                         <td>@film.Year</td>
                         <td>@film.Language</td>
-                        <td>@film.Notes </td>
+                        <td>@film.Version </td>
+
+                        <td>
+                            @*@using (Html.BeginForm("DeleteFilm", "Film", FormMethod.Post))
+                            {
+                                @Html.TextBox("id", film.Id, new { } );
+                                <button type="submit">Delete</button>
+                            }*@
+                        </td>
+                        <td>
+                            <button type="button" data-id="@film.Id" class="delete-button" data-url="@Url.Action("DeleteFilm")" >Delete</button>
+                        </td>
+                        <td>
+                            <a href="@Url.Action( "EditFilm", new { id = film.Id } )"> EDIT</a>
+                        </td>
                     </tr>
+
                 }
             </tbody>
         </table>
     </div>
+
+    <button onclick="location.href = '@Url.Action("AddFilm", "Film")'">Add new film</button>
 }
 

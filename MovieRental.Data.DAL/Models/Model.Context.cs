@@ -25,7 +25,7 @@ namespace MovieRental.Data.DAL.Models
             throw new UnintentionalCodeFirstException();
         }
     
-        public virtual DbSet<Film> Films { get; set; }
         public virtual DbSet<Client> Clients { get; set; }
+        public virtual DbSet<Film> Films { get; set; }
     }
 }

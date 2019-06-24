@@ -4,8 +4,7 @@
     ViewBag.Title = "Add new film";
     Layout = null;
 }
-@using MovieRental.Web.Enums
-@using (Html.BeginForm("AddNewFilm", "Film", FormMethod.Post))
+@using (Html.BeginForm("AddFilm", "Film", FormMethod.Post))
 {
     <div>
         @Html.LabelFor(model => model.Title) :
@@ -29,9 +28,15 @@
     </div>
 
     <div>
-        @Html.LabelFor(model => model.Category)
+        @Html.LabelFor(model => model.Category) :
         @Html.EnumDropDownListFor(model => model.Category)
         @Html.ValidationMessageFor(model => model.Category)
+    </div>
+
+    <div>
+        @Html.LabelFor(model => model.Version) :
+        @Html.EnumDropDownListFor(model => model.Version)
+        @Html.ValidationMessageFor(model => model.Version)
     </div>
     <button type="submit">Add</button>
     <a href="@Url.Action("Index")"><b>Back</b></a>

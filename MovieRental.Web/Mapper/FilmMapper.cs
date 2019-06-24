@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using MovieRental.Core.Contracts.Models;
 using MovieRental.Core.Logic.Models;
 using MovieRental.Web.Models;
 using System;
@@ -12,6 +13,9 @@ namespace MovieRental.Web.Mapper
     {
         internal static IMapper Default = new MapperConfiguration(cfg =>
         {
+            cfg.CreateMap<FilmViewModel, IFilmModel>();
+            cfg.CreateMap<IFilmModel, FilmViewModel>();
+
             cfg.CreateMap<FilmViewModel, FilmModel>();
 
             cfg.CreateMap<FilmModel, FilmViewModel>();
