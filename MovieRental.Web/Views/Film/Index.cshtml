@@ -1,7 +1,7 @@
-﻿@model IEnumerable<MovieRental.Web.Models.FilmViewModel>
-@{
-    Layout = null;
-}
+﻿@model IEnumerable<FilmViewModel>
+
+
+@{Html.RenderPartial("AddFilm", new FilmViewModel()); }
 
 @if (Model.Any())
 {
@@ -20,23 +20,19 @@
             <tbody>
                 @foreach (var film in Model)
                 {
-                    <tr>
+                    <tr id="row_@film.Id">
                         <td>@film.Title</td>
                         <td>@film.Category</td>
                         <td>@film.Director</td>
                         <td>@film.Year</td>
                         <td>@film.Language</td>
                         <td>@film.Version </td>
+                        <td></td>
+                        <td>
+                            <button type="button" data-id="@film.Id" data-url="@Url.Action("DeleteFilm")" class="btnDeleteFilm">Delete</button>
+                            <div id="temp">
 
-                        <td>
-                            @*@using (Html.BeginForm("DeleteFilm", "Film", FormMethod.Post))
-                            {
-                                @Html.TextBox("id", film.Id, new { } );
-                                <button type="submit">Delete</button>
-                            }*@
-                        </td>
-                        <td>
-                            <button type="button" data-id="@film.Id" class="delete-button" data-url="@Url.Action("DeleteFilm")" >Delete</button>
+                            </div>
                         </td>
                         <td>
                             <a href="@Url.Action( "EditFilm", new { id = film.Id } )"> EDIT</a>
@@ -47,7 +43,10 @@
             </tbody>
         </table>
     </div>
-
     <button onclick="location.href = '@Url.Action("AddFilm", "Film")'">Add new film</button>
 }
 
+@section Scripts
+    {
+    <script src="~/Scripts/Film/film.js" type="text/javascript"></script>
+}

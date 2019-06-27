@@ -15,10 +15,5 @@ namespace MovieRental.Core.Logic.Models
         public string Language { get; set; }
         public FilmCategory Category { get; set; }
         public FilmVersion Version { get; set; }
-
-        public FilmModel()
-        {
-
-        }
     }
 }

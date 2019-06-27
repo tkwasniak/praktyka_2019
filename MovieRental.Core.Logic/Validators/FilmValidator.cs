@@ -20,8 +20,8 @@ namespace MovieRental.Core.Logic.Validators
             RuleFor(x => x.Director).Length(4, 50).WithMessage("Name must be between 1 and 50 characters");
             RuleFor(x => x.Language).NotEmpty().WithMessage("Fild required");
             RuleFor(x => x.Language).Length(1, 50).WithMessage("Language must be between 1 and 50 characters");
-            RuleFor(x => x.Category).NotEmpty().WithMessage("Field required");
-            RuleFor(x => x.Version).NotEmpty().WithMessage("Field required");
+            RuleFor(x => x.Category).NotNull().WithMessage("Field required");
+            RuleFor(x => x.Version).NotNull().WithMessage("Field required");
         }
     }
 }

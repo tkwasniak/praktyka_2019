@@ -28,10 +28,16 @@ namespace MovieRental.Web.Controllers
         }
 
         [HttpGet]
-        public ActionResult AddFilm()
+        public PartialViewResult AddFilm()
         {
-            return View();
+            return PartialView();
         }
+
+        //[HttpGet]
+        //public ActionResult AddFilm()
+        //{
+        //    return View();
+        //}
 
         [HttpPost]
         public ActionResult AddFilm(FilmViewModel fvm)
@@ -40,23 +46,21 @@ namespace MovieRental.Web.Controllers
             {
                 FilmModel fm = FilmMapper.Default.Map<FilmViewModel, FilmModel>(fvm);
                 filmService.AddFilm(fm);
-                return RedirectToAction(nameof(Index));
+                return Json(new { success = true });
             }
-            return View(fvm);
+            return PartialView(fvm);
         }
 
 
-
-
         [HttpPost]
-        public ActionResult DeleteFilm(int id)
+        public JsonResult DeleteFilm(int id)
         {
-            if(id != 0)
+            if (id != 0)
             {
                 filmService.DeleteFilm(id);
+                return Json(new { success = true } );
             }
-            // zwrocic jsona z odpowiendimi polami, ktore funkcja ajaxaowa bedzie mogla przeczytac
-            return RedirectToAction(nameof(Index));
+            return Json(new { success = false } );
         }
 
         [HttpGet]

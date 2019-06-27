@@ -20,7 +20,7 @@ namespace MovieRental.Core.Logic.Services
         public void AddFilm(IFilmModel fm)
         {
             var validator = new FilmValidator();
-            var validationResult = n
+            //var validationResult = n
             Film film = FilmMapper.Default.Map<IFilmModel, Film>(fm);
             unitOfWork.FilmRepository.Add(film);
             unitOfWork.Save();
@@ -62,6 +62,7 @@ namespace MovieRental.Core.Logic.Services
             {
                 unitOfWork.FilmRepository.Delete(id);
                 unitOfWork.Save();
+
             }
         }
     }
