@@ -33,11 +33,6 @@ namespace MovieRental.Web.Controllers
             return PartialView();
         }
 
-        //[HttpGet]
-        //public ActionResult AddFilm()
-        //{
-        //    return View();
-        //}
 
         [HttpPost]
         public ActionResult AddFilm(FilmViewModel fvm)
@@ -46,7 +41,7 @@ namespace MovieRental.Web.Controllers
             {
                 FilmModel fm = FilmMapper.Default.Map<FilmViewModel, FilmModel>(fvm);
                 filmService.AddFilm(fm);
-                return Json(new { success = true });
+                return PartialView("FilmDetails", fvm);
             }
             return PartialView(fvm);
         }
@@ -63,23 +58,26 @@ namespace MovieRental.Web.Controllers
             return Json(new { success = false } );
         }
 
+
         [HttpGet]
         public ActionResult EditFilm(int id)
         {
             IFilmModel fm = filmService.GetFilm(id);
             FilmViewModel fvm = FilmMapper.Default.Map<IFilmModel, FilmViewModel>(fm);
-            return View(fvm);
+            return PartialView(fvm);
         }
 
+        [HttpPost]
         public ActionResult EditFilm(FilmViewModel fvm)
         {
             if (ModelState.IsValid)
             {
+                //fvm.Id = id;
                 FilmModel fm = FilmMapper.Default.Map<FilmViewModel, FilmModel>(fvm);
                 filmService.EditFilm(fm);
-                return RedirectToAction(nameof(Index));
+                return PartialView("FilmDetails", fvm);
             }
-            return View(fvm);
+            return PartialView(fvm);
         }
 
     }

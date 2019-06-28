@@ -40,3 +40,47 @@
     <button type="submit">Add</button>
     <a href="@Url.Action("Index")"><b>Back</b></a>
 }
+
+
+@*@if (Model.Any())
+    {
+        <div id="operationResult">
+        </div>
+        <div>
+            <table id ="filmTable">
+                <thead>
+                    <tr>
+                        <th>Title</th>
+                        <th>Category</th>
+                        <th>Director</th>
+                        <th>Year</th>
+                        <th>Language</th>
+                        <th>Version</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var film in Model)
+                    {
+                        <tr id="row_@film.Id">
+                            <td>@film.Title</td>
+                            <td>@film.Category</td>
+                            <td>@film.Director</td>
+                            <td>@film.Year</td>
+                            <td>@film.Language</td>
+                            <td>@film.Version </td>
+                            <td></td>
+                            <td>
+                                <button type="button" data-id="@film.Id" data-url="@Url.Action("DeleteFilm")" class="btnDeleteFilm">Delete</button>
+
+                            </td>
+                            <td>
+                                <a href="@Url.Action( "EditFilm", new { id = film.Id } )"> EDIT</a>
+                            </td>
+                        </tr>
+
+                    }
+                </tbody>
+            </table>
+        </div>
+        <button onclick="location.href = '@Url.Action("AddFilm", "Film")'">Add new film</button>
+    }*@

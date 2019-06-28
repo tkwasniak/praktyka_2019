@@ -2,9 +2,11 @@
 @{
     Layout = null;
 }
-
-@using (Html.BeginForm("EditFilm", "Film", FormMethod.Post))
+@using (Html.BeginForm("", "", FormMethod.Post, new { id = "editFilmForm" }))
 {
+    @*@Html.TextBoxFor(model => model.Id, new { @class = "hidden"})*@
+
+    @Html.HiddenFor(model => model.Id)
     <div>
         @Html.LabelFor(model => model.Title) :
         @Html.TextBoxFor(model => model.Title)
@@ -31,6 +33,7 @@
         @Html.EnumDropDownListFor(model => model.Category)
         @Html.ValidationMessageFor(model => model.Category)
     </div>
-    <button type="submit">Edit</button>
+
+    <button type="button" data-id="@Model.Id" data-url="@Url.Action("EditFilm")" id="btnEditFilm">Edit</button>
     <a href="@Url.Action("Index")"><b>Back</b></a>
 }

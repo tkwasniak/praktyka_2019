@@ -195,6 +195,7 @@
     <Content Include="Views\Film\AddFilm.cshtml" />
     <Content Include="Views\Film\EditFilm.cshtml" />
     <Content Include="Views\Film\AddFilm2.cshtml" />
+    <Content Include="Views\Film\FilmDetails.cshtml" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
