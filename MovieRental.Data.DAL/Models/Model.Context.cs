@@ -13,10 +13,10 @@ namespace MovieRental.Data.DAL.Models
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class MovieRentalDbContext : DbContext
+    public partial class MovieRentalEntities : DbContext
     {
-        public MovieRentalDbContext()
-            : base("name=MovieRentalDbContext")
+        public MovieRentalEntities()
+            : base("name=MovieRentalEntities")
         {
         }
     
@@ -25,7 +25,7 @@ namespace MovieRental.Data.DAL.Models
             throw new UnintentionalCodeFirstException();
         }
     
-        public virtual DbSet<Client> Clients { get; set; }
         public virtual DbSet<Film> Films { get; set; }
+        public virtual DbSet<Client> Clients { get; set; }
     }
 }

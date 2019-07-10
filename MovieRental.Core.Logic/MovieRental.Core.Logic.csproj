@@ -83,6 +83,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AutofacModules\FilmServiceModule.cs" />
+    <Compile Include="Common\EnumerableExtension.cs" />
     <Compile Include="Mapper\FilmMapper.cs" />
     <Compile Include="Models\FilmModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -101,7 +102,9 @@
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
-    <None Include="app.config" />
+    <None Include="app.config">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

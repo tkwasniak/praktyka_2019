@@ -1,0 +1,32 @@
+﻿@model FilmViewModel
+
+
+<tr>
+    <td>
+        @Html.DisplayFor(modelItem => Model.Title)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => Model.Category)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => Model.Director)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => Model.Release)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => Model.Language)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => Model.Version)
+    </td>
+    <td>
+        <button type="button" data-id="@Model.Id" data-url="@Url.Action("DeleteFilm")" class="button alert small  btnDeleteFilm"
+                data-title="@Model.Title" data-release="@Model.Release" data-open="deleteModal">Delete</button>
+    </td>
+    <td>
+        <button type="button" data-id="@Model.Id" data-url="@Url.Action("UpdateFilm")" class="button primary small btnUpdateFilm">Edit</button>
+    </td>
+</tr>
+
+

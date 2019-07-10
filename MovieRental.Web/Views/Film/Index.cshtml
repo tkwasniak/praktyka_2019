@@ -1,43 +1,18 @@
-﻿@model IEnumerable<FilmViewModel>
-
-<div id="operationResult"></div>
-
-<div id="formDiv">
-    @Html.Partial("AddFilm", new FilmViewModel())
+﻿<div id="resultMessage" class="callout success">
+    <p></p>
 </div>
 
-<table id="filmTable">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.Title)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Category)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Director)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Year)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Language)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Version)
-        </th>
-        <th></th>
-    </tr>
-    @if (Model != null)
-    {
-        foreach (var item in Model)
-        {
-            @Html.Partial("FilmDetails", item)
-        }
-    }
+@Html.Partial("_CreateFilm", new FilmViewModel())
+@Html.Action("GetFilms")
 
-</table>
+@Html.Partial("DeleteFilmModal")
+@Html.Partial("UpdateFilmModal")
+
+
+
 @section Scripts
     {
+    <script src="~/Scripts/Film/filmEvents.js" type="text/javascript"></script>
     <script src="~/Scripts/Film/film.js" type="text/javascript"></script>
+    <script src="~/Scripts/Film/datepicker.js" type="text/javascript"></script>
 }

@@ -1,5 +1,3 @@
-C:\Praktyki\MovieRental\MovieRental.Core.Logic\obj\Debug\MovieRental.Core.Logic.csprojAssemblyReference.cache
-C:\Praktyki\MovieRental\MovieRental.Core.Logic\obj\Debug\MovieRental.Core.Logic.csproj.CoreCompileInputs.cache
 C:\Praktyki\MovieRental\MovieRental.Core.Logic\bin\Debug\MovieRental.Core.Logic.dll.config
 C:\Praktyki\MovieRental\MovieRental.Core.Logic\bin\Debug\MovieRental.Core.Logic.dll
 C:\Praktyki\MovieRental\MovieRental.Core.Logic\bin\Debug\MovieRental.Core.Logic.pdb
@@ -36,6 +34,8 @@ C:\Praktyki\MovieRental\MovieRental.Core.Logic\bin\Debug\System.Web.WebPages.xml
 C:\Praktyki\MovieRental\MovieRental.Core.Logic\bin\Debug\System.Web.WebPages.Deployment.xml
 C:\Praktyki\MovieRental\MovieRental.Core.Logic\bin\Debug\System.Web.WebPages.Razor.xml
 C:\Praktyki\MovieRental\MovieRental.Core.Logic\bin\Debug\EntityFramework.xml
+C:\Praktyki\MovieRental\MovieRental.Core.Logic\obj\Debug\MovieRental.Core.Logic.csprojAssemblyReference.cache
+C:\Praktyki\MovieRental\MovieRental.Core.Logic\obj\Debug\MovieRental.Core.Logic.csproj.CoreCompileInputs.cache
 C:\Praktyki\MovieRental\MovieRental.Core.Logic\obj\Debug\MovieRental.Core.Logic.csproj.CopyComplete
 C:\Praktyki\MovieRental\MovieRental.Core.Logic\obj\Debug\MovieRental.Core.Logic.dll
 C:\Praktyki\MovieRental\MovieRental.Core.Logic\obj\Debug\MovieRental.Core.Logic.pdb

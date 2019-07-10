@@ -11,15 +11,15 @@ namespace MovieRental.Data.DAL.Repositories
 {
     public class UnitOfWork : IUnitOfWork
     {
-        private MovieRentalDbContext context;
+        private MovieRentalEntities context;
         private GenericRepository<Film> filmRepository;
 
         public UnitOfWork()
         {
-            this.context = new MovieRentalDbContext();
+            this.context = new MovieRentalEntities();
         }
 
-        public MovieRentalDbContext DbContext
+        public MovieRentalEntities DbContext
         {
             get
             {

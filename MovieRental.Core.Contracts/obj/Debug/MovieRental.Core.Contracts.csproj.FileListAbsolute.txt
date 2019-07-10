@@ -18,10 +18,10 @@ C:\Praktyki\MovieRental\MovieRental.Core.Contracts\bin\Debug\System.Web.Razor.xm
 C:\Praktyki\MovieRental\MovieRental.Core.Contracts\bin\Debug\System.Web.WebPages.xml
 C:\Praktyki\MovieRental\MovieRental.Core.Contracts\bin\Debug\System.Web.WebPages.Deployment.xml
 C:\Praktyki\MovieRental\MovieRental.Core.Contracts\bin\Debug\System.Web.WebPages.Razor.xml
+C:\Praktyki\MovieRental\MovieRental.Core.Contracts\obj\Debug\MovieRental.Core.Contracts.csprojAssemblyReference.cache
 C:\Praktyki\MovieRental\MovieRental.Core.Contracts\obj\Debug\MovieRental.Core.Contracts.csproj.CoreCompileInputs.cache
 C:\Praktyki\MovieRental\MovieRental.Core.Contracts\obj\Debug\MovieRental.Core.Contracts.csproj.CopyComplete
 C:\Praktyki\MovieRental\MovieRental.Core.Contracts\obj\Debug\MovieRental.Core.Contracts.dll
 C:\Praktyki\MovieRental\MovieRental.Core.Contracts\obj\Debug\MovieRental.Core.Contracts.pdb
-C:\Praktyki\MovieRental\MovieRental.Core.Contracts\obj\Debug\MovieRental.Core.Contracts.csprojAssemblyReference.cache
 C:\Praktyki\MovieRental\MovieRental.Core.Contracts\bin\Debug\FluentValidation.dll
 C:\Praktyki\MovieRental\MovieRental.Core.Contracts\bin\Debug\FluentValidation.xml

@@ -62,7 +62,7 @@ namespace MovieRental.Data.DAL.Repositories
 
         public void Update(T entity)
         {
-            dbSet.Attach(entity); //
+            dbSet.Attach(entity); 
             context.Entry(entity).State = EntityState.Modified;
         }
 
@@ -84,6 +84,20 @@ namespace MovieRental.Data.DAL.Repositories
         public T FirstOrDefault(Expression<Func<T, bool>> predicate)
         {
             return dbSet.FirstOrDefault(predicate);
+        }
+
+        public IEnumerable<T> GetPaged(int page, int pageSize)
+        {
+            return dbSet.OrderBy(x => x).Skip( (page - 1) * pageSize).Take(pageSize);
+        }
+
+        public int Count()
+        {
+            return dbSet.Count();
+        }
+        public int Count(Expression<Func<T, bool>> predicate)
+        {
+            return dbSet.Count(predicate);
         }
     }
 }

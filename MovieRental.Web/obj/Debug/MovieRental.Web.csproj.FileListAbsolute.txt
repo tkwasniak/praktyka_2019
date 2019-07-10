@@ -1,4 +1,3 @@
-C:\Praktyki\MovieRental\MovieRental.Web\obj\Debug\MovieRental.Web.csproj.CoreCompileInputs.cache
 C:\Praktyki\MovieRental\MovieRental.Web\bin\MovieRental.Web.dll.config
 C:\Praktyki\MovieRental\MovieRental.Web\bin\MovieRental.Web.dll
 C:\Praktyki\MovieRental\MovieRental.Web\bin\MovieRental.Web.pdb
@@ -62,6 +61,8 @@ C:\Praktyki\MovieRental\MovieRental.Web\bin\MovieRental.Core.Contracts.dll
 C:\Praktyki\MovieRental\MovieRental.Web\bin\MovieRental.Core.Logic.dll
 C:\Praktyki\MovieRental\MovieRental.Web\bin\MovieRental.Data.DAL.dll
 C:\Praktyki\MovieRental\MovieRental.Web\bin\Newtonsoft.Json.dll
+C:\Praktyki\MovieRental\MovieRental.Web\bin\PagedList.dll
+C:\Praktyki\MovieRental\MovieRental.Web\bin\PagedList.Mvc.dll
 C:\Praktyki\MovieRental\MovieRental.Web\bin\System.ComponentModel.Annotations.dll
 C:\Praktyki\MovieRental\MovieRental.Web\bin\System.Web.Helpers.dll
 C:\Praktyki\MovieRental\MovieRental.Web\bin\System.Web.Mvc.dll
@@ -86,6 +87,8 @@ C:\Praktyki\MovieRental\MovieRental.Web\bin\AutoMapper.xml
 C:\Praktyki\MovieRental\MovieRental.Web\bin\EntityFramework.xml
 C:\Praktyki\MovieRental\MovieRental.Web\bin\EntityFramework.SqlServer.xml
 C:\Praktyki\MovieRental\MovieRental.Web\bin\FluentValidation.Mvc.xml
+C:\Praktyki\MovieRental\MovieRental.Web\bin\PagedList.xml
+C:\Praktyki\MovieRental\MovieRental.Web\bin\PagedList.Mvc.xml
 C:\Praktyki\MovieRental\MovieRental.Web\bin\System.Web.Helpers.xml
 C:\Praktyki\MovieRental\MovieRental.Web\bin\System.Web.Mvc.xml
 C:\Praktyki\MovieRental\MovieRental.Web\bin\System.Web.Optimization.xml
@@ -98,6 +101,7 @@ C:\Praktyki\MovieRental\MovieRental.Web\bin\Antlr3.Runtime.pdb
 C:\Praktyki\MovieRental\MovieRental.Web\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
 C:\Praktyki\MovieRental\MovieRental.Web\bin\FluentValidation.xml
 C:\Praktyki\MovieRental\MovieRental.Web\obj\Debug\MovieRental.Web.csprojAssemblyReference.cache
+C:\Praktyki\MovieRental\MovieRental.Web\obj\Debug\MovieRental.Web.csproj.CoreCompileInputs.cache
 C:\Praktyki\MovieRental\MovieRental.Web\obj\Debug\MovieRental.Web.csproj.CopyComplete
 C:\Praktyki\MovieRental\MovieRental.Web\obj\Debug\MovieRental.Web.dll
 C:\Praktyki\MovieRental\MovieRental.Web\obj\Debug\MovieRental.Web.pdb

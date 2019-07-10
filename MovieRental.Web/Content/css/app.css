@@ -1,0 +1,57 @@
+body {
+    padding-top: 50px;
+    padding-bottom: 20px;
+}
+
+.body-content {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+.button {
+    border-radius: 5px;
+}
+
+.pagination .current a:hover {
+    background-color: #1779ba;
+}
+
+.pagination .disabled a {
+    padding: 0.1875rem 0.625rem;
+    color: #cacaca;
+    cursor: not-allowed;
+    pointer-events: none;
+}
+
+.button.alert {
+    background-color: #be2525;
+}
+
+.field-validation-error {
+    color: #be2525;
+}
+
+.accordion-title {
+    position: relative;
+    text-align: center;
+    border: 1px solid #e6e6e6;
+    border-bottom: 0;
+    font-size: 2rem;
+
+    color: #1779ba;
+}
+
+.accordion-title::before {
+    display: none;
+}
+
+
+#resultMessage{
+    display:none;
+}
+
+input,
+select,
+textarea {
+    max-width: 140px;
+}

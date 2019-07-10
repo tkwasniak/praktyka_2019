@@ -16,7 +16,7 @@ namespace MovieRental.Data.DAL.Models
     {
         public int Id { get; set; }
         public string Title { get; set; }
-        public int Year { get; set; }
+        public System.DateTime Release { get; set; }
         public string Director { get; set; }
         public string Language { get; set; }
         public string Category { get; set; }

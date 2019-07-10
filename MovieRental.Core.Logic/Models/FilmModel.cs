@@ -2,6 +2,7 @@
 using MovieRental.Core.Contracts.Enums;
 using MovieRental.Core.Contracts.Models;
 using MovieRental.Core.Logic.Validators;
+using System;
 
 namespace MovieRental.Core.Logic.Models
 {
@@ -10,7 +11,7 @@ namespace MovieRental.Core.Logic.Models
     {
         public int Id { get; set; }
         public string Title { get; set; }
-        public int? Year { get; set; }
+        public DateTime? Release { get; set; }
         public string Director { get; set; }
         public string Language { get; set; }
         public FilmCategory Category { get; set; }
