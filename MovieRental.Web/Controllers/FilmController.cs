@@ -5,6 +5,7 @@ using MovieRental.Core.Logic.Models;
 using MovieRental.Core.Logic.Services;
 using MovieRental.Web.Mapper;
 using MovieRental.Web.Models;
+using MovieRental.Web.ModelsBuilder;
 using PagedList;
 using System;
 using System.Collections.Generic;
@@ -16,27 +17,32 @@ namespace MovieRental.Web.Controllers
     public class FilmController : Controller
     {
         private readonly IFilmService filmService;
-        private const int pageSize = 3;
+        private const int pageSize = 5;
         public FilmController(FilmService _fIlmService)
         {
             this.filmService = _fIlmService;
         }
 
         [HttpGet]
-        public ActionResult CreateFilm()
+        public ActionResult Index() => View();
+
+        [HttpGet]
+        public ActionResult CreateFilm() => View(new FilmViewModel());
+
+        [HttpPost]
+        public ActionResult CreateFilm(FilmViewModel fvm)
         {
-            return PartialView("_CreateFilm", new FilmViewModel());
+            if (ModelState.IsValid)
+            {
+                FilmModel fm = FilmMapper.Default.Map<FilmViewModel, FilmModel>(fvm);
+                var result = filmService.Create(fm);
+                return Json(result);
+            }
+            return PartialView(fvm);
         }
 
         [HttpGet]
-        public ActionResult Index()
-        {
-            return View();
-        }
-
-
-        [HttpGet]
-        public ActionResult GetFilms(int page = 1, string sortOrder = "Title")
+        public ActionResult Films(int page = 1, string sortOrder = "Title")
         {
             Enum.TryParse(sortOrder, out SortOrder sortOrderEnum);
             var totalPages = (int)Math.Ceiling((double) filmService.Count() / pageSize);
@@ -45,35 +51,25 @@ namespace MovieRental.Web.Controllers
             IEnumerable<FilmViewModel> filmsViewModel =
                 FilmMapper.Default.Map<IEnumerable<IFilmModel>, IEnumerable<FilmViewModel>>(filmsModel);
 
-            var path = Url.Action("GetFilms");
 
-            return PartialView("_Films", new FilmsViewModel
+            var path = Url.Action("Films");
+
+            return PartialView(new FilmsViewModel
             {
                 Films = filmsViewModel,
                 Pagination = new PaginationViewModel(path + "?page={0}&sortOrder={1}", page, totalPages),
             });
         }
 
-        [HttpPost]
-        public ActionResult CreateFilm(FilmViewModel fvm)
-        {
-            if (ModelState.IsValid)
-            {
-                FilmModel fm = FilmMapper.Default.Map<FilmViewModel, FilmModel>(fvm);
-                filmService.Create(fm);
-                return PartialView("_FilmDetails", fvm);
-            }
-            return PartialView("_FilmDetails", fvm);
-        }
-
 
         [HttpPost]
         public ActionResult DeleteFilm(int id)
         {
+            id = -3;
             if (id != 0)
             {
-                filmService.Delete(id);
-                return Json(new { success = true });
+                var result = filmService.Delete(id);
+                return Json(result);
             }
             return Json(new { success = false });
         }
@@ -82,9 +78,10 @@ namespace MovieRental.Web.Controllers
         [HttpGet]
         public ActionResult UpdateFilm(int id)
         {
-            IFilmModel fm = filmService.GetById(id);
-            FilmViewModel fvm = FilmMapper.Default.Map<IFilmModel, FilmViewModel>(fm);
-            return PartialView("_UpdateFilm", fvm);
+            var filmModel = filmService.GetById(id);
+
+            var film = FilmMapper.Default.Map<FilmModel, FilmViewModel>(filmModel as FilmModel);
+            return PartialView("UpdateFilm", film);
         }
 
         [HttpPost]

@@ -13,9 +13,9 @@ namespace MovieRental.Core.Contracts.Models
         string Title { get; set; }
         DateTime? Release { get; set; }
         string Director { get; set; }
-        string Language { get; set; }
+        string Country { get; set; }
         FilmCategory Category { get; set; }
-        FilmVersion Version { get; set; }
+        FilmRating Rating { get; set; }
 
 
     }

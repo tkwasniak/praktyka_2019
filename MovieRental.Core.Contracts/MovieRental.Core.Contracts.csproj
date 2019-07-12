@@ -77,10 +77,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Enums\FilmCategory.cs" />
-    <Compile Include="Enums\FilmLanguage.cs" />
-    <Compile Include="Enums\FilmVersion.cs" />
+    <Compile Include="Enums\FilmRating.cs" />
     <Compile Include="Enums\SortOrder.cs" />
     <Compile Include="Models\IFilmModel.cs" />
+    <Compile Include="Services\IFilmServiceResponse.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\IFilmService.cs" />
   </ItemGroup>

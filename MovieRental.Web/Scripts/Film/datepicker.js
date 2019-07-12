@@ -1,8 +1,7 @@
-﻿
-$('body').on('focus', ".dp", function () {
+﻿$('body').on('focus', ".dp", function () {
     var today = new Date();
     $(this).datepicker({
-        dateFormat: 'dd.mm.yy',
+        dateFormat: 'dd/mm/yy',
         maxDate: today,
         minDate: new Date(1950, 1, 1),
         defaultDate: today,
@@ -12,7 +11,6 @@ $('body').on('focus', ".dp", function () {
         nextText: '',
         prevText: '',
         defaultDate: today,
-        dayNames: ["sds", "", "", "", "", "", ""]
     });
     $('.dp').keydown(function (e) {
         e.preventDefault();

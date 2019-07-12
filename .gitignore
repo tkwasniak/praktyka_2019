@@ -1,2 +1,4 @@
 .vs/
 packages/
+/Database/bin/Debug
+/Database

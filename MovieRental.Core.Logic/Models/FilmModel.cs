@@ -13,8 +13,8 @@ namespace MovieRental.Core.Logic.Models
         public string Title { get; set; }
         public DateTime? Release { get; set; }
         public string Director { get; set; }
-        public string Language { get; set; }
+        public string Country { get; set; }
         public FilmCategory Category { get; set; }
-        public FilmVersion Version { get; set; }
+        public FilmRating Rating { get; set; }
     }
 }

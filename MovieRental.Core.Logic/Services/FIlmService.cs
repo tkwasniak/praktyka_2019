@@ -1,4 +1,5 @@
 ﻿using FluentValidation.Results;
+using MovieRental.Core.Contracts;
 using MovieRental.Core.Contracts.Enums;
 using MovieRental.Core.Contracts.Models;
 using MovieRental.Core.Contracts.Services;
@@ -15,29 +16,35 @@ namespace MovieRental.Core.Logic.Services
 {
     public class FilmService : IFilmService
     {
-        private UnitOfWork unitOfWork;
-        public FilmService(UnitOfWork unitOfWork)
-        {
-            this.unitOfWork = unitOfWork;
-        }
+        public FilmService(UnitOfWork unitOfWork){}
 
-        public void Create(IFilmModel fm)
+        public IFilmServiceResponse Create(IFilmModel fm)
         {
             using (var uow = new UnitOfWork())
             {
-                List<string> errors = new List<string>();
+                ServiceResponse response = new ServiceResponse();
                 var validator = new FilmValidator();
                 var results = validator.Validate(fm);
-                foreach(ValidationFailure error in results.Errors)
+                if (results.IsValid)
                 {
-                    //errors.Add()
+                    Film film = FilmMapper.Default.Map<FilmModel, Film>(fm as FilmModel);
+                    uow.FilmRepository.Add(film);
+                    uow.Save();
+                    response.HasSucceeded = true;
+                    return response;
                 }
-                Film film = FilmMapper.Default.Map<IFilmModel, Film>(fm);
-                uow.FilmRepository.Add(film);
-                uow.Save();
+                else
+                {
+                    response.HasSucceeded = false;
+                    string errors = "";
+                    foreach (var error in results.Errors)
+                    {
+                        errors +=$"{error.PropertyName}: {error.ErrorMessage} \n";
+                    }
+                    response.Errors = errors;
+                    return response;
+                }
             }
-            //check whether the film already exists
-
         }
 
         public int Count()
@@ -52,7 +59,8 @@ namespace MovieRental.Core.Logic.Services
         {
             using (var uow = new UnitOfWork())
             {
-                Film film = FilmMapper.Default.Map<IFilmModel, Film>(fm);
+
+                Film film = FilmMapper.Default.Map<FilmModel, Film>(fm as FilmModel);
                 uow.FilmRepository.Update(film);
                 uow.Save();
             }
@@ -110,24 +118,28 @@ namespace MovieRental.Core.Logic.Services
             using (var uow = new UnitOfWork())
             {
                 Film film = uow.FilmRepository.GetById(id);
-                IFilmModel filmModel = FilmMapper.Default.Map<Film, IFilmModel>(film);
+                FilmModel filmModel = FilmMapper.Default.Map<Film, FilmModel>(film);
                 return filmModel;
             }
         }
 
-        public void Delete(int id)
+        public IFilmServiceResponse Delete(int id)
         {
             using (var uow = new UnitOfWork())
             {
+                ServiceResponse response = new ServiceResponse();
                 var entry = uow.FilmRepository.GetById(id);
                 if (entry == null)
                 {
-                    //return message
-                    return;
+
+                    response.HasSucceeded = false;
+                    response.Errors = "Record doesn't exist";
+                    return response; ;
                 }
                 uow.FilmRepository.Delete(id);
                 uow.Save();
-
+                response.HasSucceeded = false;
+                return response;
             }
         }
 

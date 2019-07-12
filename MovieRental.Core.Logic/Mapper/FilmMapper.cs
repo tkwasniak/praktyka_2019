@@ -11,33 +11,24 @@ namespace MovieRental.Core.Logic.Mapper
     {
         internal static IMapper Default = new MapperConfiguration(cfg =>
         {
-            cfg.CreateMap<IFilmModel, Film>()
-                .ForMember(dest => dest.Category, opt => opt.MapFrom(f => f.Category.ToString()))
-                .ForMember(dest => dest.Version, opt => opt.MapFrom(f => f.Version.ToString()));
-
-            cfg.CreateMap<Film, IFilmModel>()
-               .ForMember(dest => dest.Category, opt => opt.MapFrom(f => ConvertStringToFilmCategoryEnum(f.Category)))
-               .ForMember(Dest => Dest.Version, opt => opt.MapFrom(f => ConvertStringToFilmVersionEnum(f.Version)));
-
-
             cfg.CreateMap<FilmModel, Film>()
-                //.ForMember(x => x.Id, opt => opt.Ignore())
-                .ForMember(x => x.Category, opt => opt.MapFrom(f => f.Category.ToString()));
-
-
+                .ForMember(dest => dest.Category, opt => opt.MapFrom(f => f.Category.ToString()))
+                .ForMember(dest => dest.Rating, opt => opt.MapFrom(f => f.Rating.ToString()));
             cfg.CreateMap<Film, FilmModel>()
-                .ForMember(x => x.Category, opt => opt.MapFrom(f => ConvertStringToFilmCategoryEnum(f.Category)));
+               .ForMember(dest => dest.Category, opt => opt.MapFrom(f => ConvertStringToFilmCategoryEnum(f.Category)))
+               .ForMember(dest => dest.Rating, opt => opt.MapFrom(f => ConvertStringToFilmVersionEnum(f.Rating)));
 
         }).CreateMapper();
+
 
         private static FilmCategory ConvertStringToFilmCategoryEnum(string value)
         {
             return (FilmCategory) Enum.Parse(typeof(FilmCategory), value);
         }
 
-        private static FilmVersion ConvertStringToFilmVersionEnum(string value)
+        private static FilmRating ConvertStringToFilmVersionEnum(string value)
         {
-            return (FilmVersion)Enum.Parse(typeof(FilmVersion), value);
+            return (FilmRating)Enum.Parse(typeof(FilmRating), value);
         }
 
     }

@@ -1,12 +1,11 @@
 ﻿$(document).on('click', '.btnDeleteFilm', function () {
     var title = $(this).attr('data-title');
-    var release = $(this).attr('data-release').toString().substr(0, 10);
+    var release = $(this).attr('data-release');
     var id = $(this).attr('data-id');
     var url = $(this).attr('data-url');
-    $('#deleteDetails').html(title + ' ' + release);
+    $('#deleteModal p').html(title + ' ' + release);
     $('#confirmDeletion').attr('data-id', id);
     $('#confirmDeletion').attr('data-url', url);
-
     $('#deleteModal').foundation('open');
 
 });
@@ -17,9 +16,10 @@ $(document).on('click', '.btnUpdateFilm', function () {
     getFilmForUpdate(id, url);
 });
 
-$(document).on('click', '#btnCloseForm', function () {
-    //$('#createFilmForm').trigger('reset');
-    $('.field-validation-valid').remove();
+
+$(document).on('click', '#btnCloseCreateForm', function () {
+    var form = $(this).closest('form');
+    clearForm(form);
     $('#acc').foundation('up', $('#accItem'));
 
 });
@@ -36,7 +36,7 @@ $(document).on('click', '#btnCreateFilm', function () {
     };
 })
 
-$(document).on('click', '#btnBackFromEdit', function () {
+$(document).on('click', '#btnCloseUpdateForm', function () {
     $('#updateModal').foundation('close');
 
 });
@@ -56,10 +56,11 @@ $(document).on("click", "#btnSaveFilm", function () {
 $(document).on('click', '.sortOrder', function () {
     var url = $(this).attr('data-url');
     var target = $(this).attr('data-target');
+
     if (typeof url === typeof undefined) {
         return;
     }
-    getPagedFilms(url, target);
+    getFilms(url, target);
 });
 
 
@@ -86,7 +87,7 @@ $(document).on('click', '.pagination a', function (e) {
         return;
     }
     var target = $(this).parents('div.pager').attr('data-target'); // rodzicem jest div w ktorym zawarty jest pager
-    getPagedFilms(url, target);
+    getFilms(url, target);
 });
 
 
@@ -96,9 +97,26 @@ function displayResultMessage (message) {
     $("#resultMessage p").text(message);
     $('#resultMessage').show();
     setTimeout(function () {
-        $("#resultMessage").hide('blind', 3000);
+
+        $("#resultMessage").hide('blind', 5000);
     });
 }
 
 
 
+function clearForm(form) {
+    //reset jQuery Validate's internals
+    $(form).find('input[type=text], textarea').val('');
+
+    //for summary
+    //$(form).find('[data-valmsg-summary=true]')
+    //    .removeClass('validation-summary-valid')
+    //    .addClass('validation-summary-valid')
+    //    .find('ul').empty();
+
+    //for individual fields
+    $(form).find('[data-valmsg-replace]')
+        .removeClass('field-validation-error')
+        .addClass('field-validation-valid')
+        .empty();
+};

@@ -2,12 +2,21 @@
     <p></p>
 </div>
 
-@Html.Partial("_CreateFilm", new FilmViewModel())
-@Html.Action("GetFilms")
 
+
+@Html.Partial("CreateFilm", new FilmViewModel())
+@Html.Action("Films")
 @Html.Partial("DeleteFilmModal")
 @Html.Partial("UpdateFilmModal")
 
+<div class="reveal" id="errorDisplayModal" data-reveal>
+    <div class="callout secondary">
+        <p class="text-center"></p>
+        <div class="grid-x grid-margin-x grid-padding-x">
+            <button type="button" data-close class="button cell small-6 ">Continue</button>
+        </div>
+    </div>
+</div>
 
 
 @section Scripts

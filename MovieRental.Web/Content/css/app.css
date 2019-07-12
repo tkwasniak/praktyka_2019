@@ -2,12 +2,10 @@ body {
     padding-top: 50px;
     padding-bottom: 20px;
 }
-
 .body-content {
     padding-left: 15px;
     padding-right: 15px;
 }
-
 .button {
     border-radius: 5px;
 }
@@ -37,7 +35,6 @@ body {
     border: 1px solid #e6e6e6;
     border-bottom: 0;
     font-size: 2rem;
-
     color: #1779ba;
 }
 
@@ -45,13 +42,33 @@ body {
     display: none;
 }
 
-
-#resultMessage{
-    display:none;
+#ui-datepicker-div {
+    border: 4px solid #1779ba;
+}
+.ui-datepicker-month,
+.ui-datepicker-year {
+    margin: 0 0 0 0;
 }
 
-input,
-select,
-textarea {
-    max-width: 140px;
+#filmTable{
+    table-layout: fixed;
+}
+
+#resultMessage p{
+    display: inline;
+    float: none;
+    font-size: 1.2rem;
+    color: #1779ba;
+}
+
+#resultMessage {
+    display: none;
+    text-align: center;
+}
+
+.fi-page-delete,
+.fi-page-edit,
+.fi-arrow-right,
+.fi-arrow-left{
+    font-size: 1rem;
 }

@@ -23,6 +23,7 @@ namespace MovieRental.Web
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
                 "~/Content/css/foundation.min.css",
+                "~/Content/foundation-icons/foundation-icons.css",
                 "~/Content/jquery-ui.min.css"));
 
             bundles.Add(new ScriptBundle("~/bundles/foundation").Include(

@@ -8,8 +8,8 @@ namespace MovieRental.Core.Contracts.Services
 {
     public interface IFilmService
     {
-        void Create(IFilmModel fm);
-        void Delete(int id);
+        IFilmServiceResponse Create(IFilmModel fm);
+        IFilmServiceResponse Delete(int id);
         void Update(IFilmModel fm);
         IEnumerable<IFilmModel> GetAll(); // musi byc
         IEnumerable<IFilmModel> GetPaged(SortOrder order, int pageIndex, int pageSize);

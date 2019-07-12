@@ -18,8 +18,8 @@ namespace MovieRental.Data.DAL.Models
         public string Title { get; set; }
         public System.DateTime Release { get; set; }
         public string Director { get; set; }
-        public string Language { get; set; }
+        public string Country { get; set; }
         public string Category { get; set; }
-        public string Version { get; set; }
+        public string Rating { get; set; }
     }
 }
