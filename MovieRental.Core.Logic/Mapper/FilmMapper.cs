@@ -1,17 +1,16 @@
 ﻿using AutoMapper;
 using MovieRental.Core.Contracts.Enums;
 using MovieRental.Core.Contracts.Models;
-using MovieRental.Core.Logic.Models;
 using MovieRental.Data.DAL.Models;
 using System;
 
 namespace MovieRental.Core.Logic.Mapper
 {
-    internal sealed class FilmMapper
+    internal class FilmMapper
     {
-        internal static IMapper Default = new MapperConfiguration(cfg =>
+        internal static IMapper Mapping = new MapperConfiguration(cfg =>
         {
-            cfg.CreateMap<FilmModel, Film>()
+            cfg.CreateMap<IFilmModel, Film>()
                 .ForMember(dest => dest.Category, opt => opt.MapFrom(f => f.Category.ToString()))
                 .ForMember(dest => dest.Rating, opt => opt.MapFrom(f => f.Rating.ToString()));
             cfg.CreateMap<Film, FilmModel>()

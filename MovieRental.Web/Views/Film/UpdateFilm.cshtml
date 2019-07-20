@@ -14,7 +14,10 @@
             </div>
             <div class="cell small-12 medium-4 ">
                 @Html.LabelFor(model => model.Release)
-                @Html.TextBoxFor(model => model.Release, new { id = "dp2", @class = "dp" })
+                @{
+                    var formattedDate = Model.Release.Value.ToString("dd-MMM-yyyy", CultureInfo.InvariantCulture);
+                }
+                @Html.TextBoxFor(model => model.Release, new { id = "dp2", @class = "dp", @Value = formattedDate })
                 @Html.ValidationMessageFor(model => model.Release)
             </div>
             <div class="cell small-12 medium-4 ">
@@ -29,12 +32,12 @@
             </div>
             <div class="cell small-12 medium-4 ">
                 @Html.LabelFor(model => model.Category)
-                @Html.EnumDropDownListFor(model => model.Category)
+                @Html.EnumDropDownListFor(model => model.Category, new { id = "category" })
                 @Html.ValidationMessageFor(model => model.Category)
             </div>
             <div class="cell small-12 medium-4 ">
                 @Html.LabelFor(model => model.Rating)
-                @Html.EnumDropDownListFor(model => model.Rating)
+                @Html.EnumDropDownListFor(model => model.Rating, new { id = "rat" })
                 @Html.ValidationMessageFor(model => model.Rating)
             </div>
             <div class="cell cell small-12 medium-6">

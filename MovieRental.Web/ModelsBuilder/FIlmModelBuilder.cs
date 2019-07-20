@@ -1,5 +1,4 @@
 ﻿using MovieRental.Core.Contracts.Models;
-using MovieRental.Core.Logic.Models;
 using MovieRental.Web.Mapper;
 using MovieRental.Web.Models;
 using System;
@@ -11,9 +10,15 @@ namespace MovieRental.Web.ModelsBuilder
 {
     public static class FilmModelBuilder
     {
-        public static FilmViewModel GetFilmViewModel(FilmModel filmModel)
+        public static FilmViewModel GetFilmViewModel(IFilmModel filmModel)
         {
-            return FilmMapper.Default.Map<FilmModel, FilmViewModel>(filmModel);
+            return FilmMapper.Mapping.Map<IFilmModel, FilmViewModel>(filmModel);
+        }
+
+
+        public static IEnumerable<FilmViewModel> GetFilmViewModelList(IEnumerable<IFilmModel> filmModelList)
+        {
+            return FilmMapper.Mapping.Map<IEnumerable<IFilmModel>, IEnumerable<FilmViewModel>>(filmModelList);
         }
     }
 }

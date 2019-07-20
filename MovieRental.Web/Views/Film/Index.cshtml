@@ -3,25 +3,23 @@
 </div>
 
 
-
 @Html.Partial("CreateFilm", new FilmViewModel())
 @Html.Action("Films")
 @Html.Partial("DeleteFilmModal")
 @Html.Partial("UpdateFilmModal")
 
-<div class="reveal" id="errorDisplayModal" data-reveal>
-    <div class="callout secondary">
-        <p class="text-center"></p>
-        <div class="grid-x grid-margin-x grid-padding-x">
-            <button type="button" data-close class="button cell small-6 ">Continue</button>
-        </div>
+<div class="reveal callout warning" id="errorDisplayModal" data-reveal>
+    <p class="text-center"></p>
+    <div class="grid-x grid-margin-x grid-padding-x">
+        <button type="button" data-close class="button cell small-12 ">Continue</button>
     </div>
 </div>
 
 
 @section Scripts
     {
-    <script src="~/Scripts/Film/filmEvents.js" type="text/javascript"></script>
+    <script src="~/Scripts/Film/filmEvents.js?v=2" type="text/javascript"></script>
     <script src="~/Scripts/Film/film.js" type="text/javascript"></script>
     <script src="~/Scripts/Film/datepicker.js" type="text/javascript"></script>
+    <script src="~/Scripts/Film/validationRule.js" type="text/javascript"></script>
 }

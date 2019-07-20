@@ -1,19 +1,19 @@
 ﻿@model FilmsViewModel
 
-<div id="displayContentWrapper">
+<div id="tableWrapper">
     <table id="filmTable" class="hover">
         <tr>
             <th>
-                <a class="sortOrder" data-url="/Film/Films?sortOrder=Title" data-target="#displayContentWrapper">Title</a>
+                <a class="sortOrder" data-url="/Film/Films?sortOrder=Title" data-target="#tableWrapper">Title</a>
             </th>
             <th>
                 @Html.DisplayName("Category")
             </th>
             <th>
-                <a class="sortOrder" data-url="/Film/Films?sortOrder=Director" data-target="#displayContentWrapper">Director</a>
+                <a class="sortOrder" data-url="/Film/Films?sortOrder=Director" data-target="#tableWrapper">Director</a>
             </th>
             <th>
-                <a class="sortOrder" data-url="/Film/Films?sortOrder=Release" data-target="#displayContentWrapper">Release</a>
+                <a class="sortOrder" data-url="/Film/Films?sortOrder=Release" data-target="#tableWrapper">Release</a>
             </th>
             <th>
                 @Html.DisplayName("Language")
@@ -27,11 +27,11 @@
         {
             foreach (var item in Model.Films)
             {
-                @Html.Partial("_FilmDetails", item);
+                @Html.Partial("FilmDetails", item);
             }
         }
     </table>
-    <div class="pager" data-target="#displayContentWrapper">
+    <div class="pager" data-target="#tableWrapper">
         @Html.Partial("_Pagination", Model.Pagination)
     </div>
 </div>

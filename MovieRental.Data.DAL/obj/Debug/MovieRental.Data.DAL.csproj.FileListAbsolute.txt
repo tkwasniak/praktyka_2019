@@ -4,12 +4,16 @@ C:\Praktyki\MovieRental\MovieRental.Data.DAL\bin\Debug\MovieRental.Data.DAL.pdb
 C:\Praktyki\MovieRental\MovieRental.Data.DAL\bin\Debug\EntityFramework.dll
 C:\Praktyki\MovieRental\MovieRental.Data.DAL\bin\Debug\EntityFramework.SqlServer.dll
 C:\Praktyki\MovieRental\MovieRental.Data.DAL\bin\Debug\MovieRental.Core.Contracts.dll
+C:\Praktyki\MovieRental\MovieRental.Data.DAL\bin\Debug\NLog.dll
 C:\Praktyki\MovieRental\MovieRental.Data.DAL\bin\Debug\MovieRental.Core.Contracts.pdb
 C:\Praktyki\MovieRental\MovieRental.Data.DAL\bin\Debug\MovieRental.Core.Contracts.dll.config
 C:\Praktyki\MovieRental\MovieRental.Data.DAL\bin\Debug\EntityFramework.xml
 C:\Praktyki\MovieRental\MovieRental.Data.DAL\bin\Debug\EntityFramework.SqlServer.xml
+C:\Praktyki\MovieRental\MovieRental.Data.DAL\bin\Debug\NLog.xml
 C:\Praktyki\MovieRental\MovieRental.Data.DAL\obj\Debug\MovieRental.Data.DAL.csprojAssemblyReference.cache
 C:\Praktyki\MovieRental\MovieRental.Data.DAL\obj\Debug\MovieRental.Data.DAL.csproj.CoreCompileInputs.cache
 C:\Praktyki\MovieRental\MovieRental.Data.DAL\obj\Debug\MovieRental.Data.DAL.csproj.CopyComplete
 C:\Praktyki\MovieRental\MovieRental.Data.DAL\obj\Debug\MovieRental.Data.DAL.dll
 C:\Praktyki\MovieRental\MovieRental.Data.DAL\obj\Debug\MovieRental.Data.DAL.pdb
+C:\Praktyki\MovieRental\MovieRental.Data.DAL\bin\Debug\FluentValidation.dll
+C:\Praktyki\MovieRental\MovieRental.Data.DAL\bin\Debug\FluentValidation.xml

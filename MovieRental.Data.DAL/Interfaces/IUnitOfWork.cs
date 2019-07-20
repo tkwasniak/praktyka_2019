@@ -11,7 +11,7 @@ namespace MovieRental.Data.DAL.Interfaces
 {
     public interface IUnitOfWork: IDisposable
     {
-        GenericRepository<Film> FilmRepository { get; }
+        IGenericRepository<Film> FilmRepository { get; }
         void Save();
     }
 }

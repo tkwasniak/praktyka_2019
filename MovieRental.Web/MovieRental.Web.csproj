@@ -67,6 +67,9 @@
       <HintPath>..\packages\FluentValidation.ValidatorAttribute.8.4.0\lib\net45\FluentValidation.ValidatorAttribute.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="NLog, Version=4.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c, processorArchitecture=MSIL">
+      <HintPath>..\packages\NLog.4.6.6\lib\net45\NLog.dll</HintPath>
+    </Reference>
     <Reference Include="PagedList, Version=1.17.0.0, Culture=neutral, PublicKeyToken=abbb863e9397c5e1, processorArchitecture=MSIL">
       <HintPath>..\packages\PagedList.1.17.0.0\lib\net40\PagedList.dll</HintPath>
     </Reference>
@@ -79,6 +82,10 @@
     </Reference>
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.IO.Compression" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Transactions" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -151,8 +158,10 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\AutofacConfig.cs" />
+    <Compile Include="Common\ControllerExtension.cs" />
+    <Compile Include="Common\CategoryRatingRequired.cs" />
     <Compile Include="Controllers\FilmController.cs" />
-    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\ErrorController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -461,9 +470,13 @@
     <Content Include="Content\foundation-icons\foundation-icons.eot" />
     <Content Include="Content\foundation-icons\foundation-icons.ttf" />
     <Content Include="Content\foundation-icons\foundation-icons.woff" />
+    <Content Include="NLog.config">
+      <SubType>Designer</SubType>
+    </Content>
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\Film\datepicker.js" />
     <Content Include="Scripts\Film\filmEvents.js" />
+    <Content Include="Scripts\Film\validationRule.js" />
     <Content Include="Scripts\foundation\app.js" />
     <Content Include="Scripts\Film\film.js" />
     <Content Include="Scripts\foundation\foundation.js" />
@@ -495,16 +508,17 @@
       <SubType>Designer</SubType>
     </Content>
     <Content Include="Views\_ViewStart.cshtml" />
-    <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Film\Index.cshtml" />
     <Content Include="Views\Film\CreateFilm.cshtml" />
     <Content Include="Views\Film\UpdateFilm.cshtml" />
-    <Content Include="Views\Film\_FilmDetails.cshtml" />
+    <Content Include="Views\Film\FilmDetails.cshtml" />
     <Content Include="Views\Shared\_Pagination.cshtml" />
     <Content Include="Views\Film\Films.cshtml" />
     <Content Include="Views\Film\DeleteFilmModal.cshtml" />
     <Content Include="Views\Film\UpdateFilmModal.cshtml" />
+    <Content Include="Views\Error\NotFound.cshtml" />
+    <Content Include="Views\Error\General.cshtml" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
@@ -513,6 +527,10 @@
     <Content Include="Scripts\jquery-3.3.1.min.map" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Common\Common.csproj">
+      <Project>{E075E9F8-05AD-4C71-A629-BD65E2E8EA23}</Project>
+      <Name>Common</Name>
+    </ProjectReference>
     <ProjectReference Include="..\MovieRental.Core.Contracts\MovieRental.Core.Contracts.csproj">
       <Project>{6cfcc6f9-0be3-45a1-a17d-521135c10a45}</Project>
       <Name>MovieRental.Core.Contracts</Name>

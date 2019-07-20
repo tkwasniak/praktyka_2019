@@ -1,3 +1,4 @@
+C:\Praktyki\MovieRental\MovieRental.Web\bin\System.Web.Razor.xml
 C:\Praktyki\MovieRental\MovieRental.Web\bin\MovieRental.Web.dll.config
 C:\Praktyki\MovieRental\MovieRental.Web\bin\MovieRental.Web.dll
 C:\Praktyki\MovieRental\MovieRental.Web\bin\MovieRental.Web.pdb
@@ -51,6 +52,7 @@ C:\Praktyki\MovieRental\MovieRental.Web\bin\Antlr3.Runtime.dll
 C:\Praktyki\MovieRental\MovieRental.Web\bin\Autofac.dll
 C:\Praktyki\MovieRental\MovieRental.Web\bin\Autofac.Integration.Mvc.dll
 C:\Praktyki\MovieRental\MovieRental.Web\bin\AutoMapper.dll
+C:\Praktyki\MovieRental\MovieRental.Web\bin\Common.dll
 C:\Praktyki\MovieRental\MovieRental.Web\bin\EntityFramework.dll
 C:\Praktyki\MovieRental\MovieRental.Web\bin\EntityFramework.SqlServer.dll
 C:\Praktyki\MovieRental\MovieRental.Web\bin\FluentValidation.Mvc.dll
@@ -61,6 +63,7 @@ C:\Praktyki\MovieRental\MovieRental.Web\bin\MovieRental.Core.Contracts.dll
 C:\Praktyki\MovieRental\MovieRental.Web\bin\MovieRental.Core.Logic.dll
 C:\Praktyki\MovieRental\MovieRental.Web\bin\MovieRental.Data.DAL.dll
 C:\Praktyki\MovieRental\MovieRental.Web\bin\Newtonsoft.Json.dll
+C:\Praktyki\MovieRental\MovieRental.Web\bin\NLog.dll
 C:\Praktyki\MovieRental\MovieRental.Web\bin\PagedList.dll
 C:\Praktyki\MovieRental\MovieRental.Web\bin\PagedList.Mvc.dll
 C:\Praktyki\MovieRental\MovieRental.Web\bin\System.ComponentModel.Annotations.dll
@@ -73,6 +76,7 @@ C:\Praktyki\MovieRental\MovieRental.Web\bin\System.Web.WebPages.dll
 C:\Praktyki\MovieRental\MovieRental.Web\bin\System.Web.WebPages.Razor.dll
 C:\Praktyki\MovieRental\MovieRental.Web\bin\WebGrease.dll
 C:\Praktyki\MovieRental\MovieRental.Web\bin\FluentValidation.dll
+C:\Praktyki\MovieRental\MovieRental.Web\bin\Common.pdb
 C:\Praktyki\MovieRental\MovieRental.Web\bin\MovieRental.Core.Contracts.pdb
 C:\Praktyki\MovieRental\MovieRental.Web\bin\MovieRental.Core.Contracts.dll.config
 C:\Praktyki\MovieRental\MovieRental.Web\bin\MovieRental.Core.Logic.pdb
@@ -87,12 +91,12 @@ C:\Praktyki\MovieRental\MovieRental.Web\bin\AutoMapper.xml
 C:\Praktyki\MovieRental\MovieRental.Web\bin\EntityFramework.xml
 C:\Praktyki\MovieRental\MovieRental.Web\bin\EntityFramework.SqlServer.xml
 C:\Praktyki\MovieRental\MovieRental.Web\bin\FluentValidation.Mvc.xml
+C:\Praktyki\MovieRental\MovieRental.Web\bin\NLog.xml
 C:\Praktyki\MovieRental\MovieRental.Web\bin\PagedList.xml
 C:\Praktyki\MovieRental\MovieRental.Web\bin\PagedList.Mvc.xml
 C:\Praktyki\MovieRental\MovieRental.Web\bin\System.Web.Helpers.xml
 C:\Praktyki\MovieRental\MovieRental.Web\bin\System.Web.Mvc.xml
 C:\Praktyki\MovieRental\MovieRental.Web\bin\System.Web.Optimization.xml
-C:\Praktyki\MovieRental\MovieRental.Web\bin\System.Web.Razor.xml
 C:\Praktyki\MovieRental\MovieRental.Web\bin\System.Web.WebPages.xml
 C:\Praktyki\MovieRental\MovieRental.Web\bin\System.Web.WebPages.Deployment.xml
 C:\Praktyki\MovieRental\MovieRental.Web\bin\System.Web.WebPages.Razor.xml

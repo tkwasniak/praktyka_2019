@@ -42,13 +42,6 @@ body {
     display: none;
 }
 
-#ui-datepicker-div {
-    border: 4px solid #1779ba;
-}
-.ui-datepicker-month,
-.ui-datepicker-year {
-    margin: 0 0 0 0;
-}
 
 #filmTable{
     table-layout: fixed;
@@ -65,10 +58,22 @@ body {
     display: none;
     text-align: center;
 }
+#deleteModal h3{
+    color: #1779ba;
+}
 
 .fi-page-delete,
 .fi-page-edit,
 .fi-arrow-right,
 .fi-arrow-left{
     font-size: 1rem;
+}
+
+#ui-datepicker-div {
+    background-color: #1779ba;
+}
+
+.ui-datepicker-month,
+.ui-datepicker-year {
+    margin: 0 0 0 0;
 }

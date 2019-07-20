@@ -1,0 +1,8 @@
+C:\Praktyki\MovieRental\Common\bin\Debug\Common.dll
+C:\Praktyki\MovieRental\Common\bin\Debug\Common.pdb
+C:\Praktyki\MovieRental\Common\bin\Debug\NLog.dll
+C:\Praktyki\MovieRental\Common\bin\Debug\NLog.xml
+C:\Praktyki\MovieRental\Common\obj\Debug\Common.csproj.CoreCompileInputs.cache
+C:\Praktyki\MovieRental\Common\obj\Debug\Common.csproj.CopyComplete
+C:\Praktyki\MovieRental\Common\obj\Debug\Common.dll
+C:\Praktyki\MovieRental\Common\obj\Debug\Common.pdb

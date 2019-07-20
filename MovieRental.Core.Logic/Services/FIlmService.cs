@@ -1,11 +1,8 @@
-﻿using FluentValidation.Results;
-using MovieRental.Core.Contracts;
-using MovieRental.Core.Contracts.Enums;
+﻿using MovieRental.Core.Contracts.Enums;
+using MovieRental.Core.Contracts.Interfaces;
 using MovieRental.Core.Contracts.Models;
-using MovieRental.Core.Contracts.Services;
 using MovieRental.Core.Logic.Common;
 using MovieRental.Core.Logic.Mapper;
-using MovieRental.Core.Logic.Models;
 using MovieRental.Core.Logic.Validators;
 using MovieRental.Data.DAL.Models;
 using MovieRental.Data.DAL.Repositories;
@@ -16,33 +13,44 @@ namespace MovieRental.Core.Logic.Services
 {
     public class FilmService : IFilmService
     {
-        public FilmService(UnitOfWork unitOfWork){}
 
-        public IFilmServiceResponse Create(IFilmModel fm)
+        public FilmService(/*,ILoggerFactory loggerFactory*/)
+        {
+            //logger = loggerFactory.GetLogger("FilmServiceLog");
+        }
+
+        public ServiceResponse Create(FilmModel fm)
         {
             using (var uow = new UnitOfWork())
             {
-                ServiceResponse response = new ServiceResponse();
+                if (fm != null && fm.Id != 0)
+                {
+                    return new ServiceResponse
+                    {
+                        HasSucceeded = false,
+                        Errors = new List<string> { "Id should not be set" }
+                    };
+                }
                 var validator = new FilmValidator();
                 var results = validator.Validate(fm);
                 if (results.IsValid)
                 {
-                    Film film = FilmMapper.Default.Map<FilmModel, Film>(fm as FilmModel);
-                    uow.FilmRepository.Add(film);
+                    uow.FilmRepository.Add(FilmMapper.Mapping.Map<IFilmModel, Film>(fm));
                     uow.Save();
-                    response.HasSucceeded = true;
-                    return response;
+                    return new ServiceResponse { HasSucceeded = true };
                 }
                 else
                 {
-                    response.HasSucceeded = false;
-                    string errors = "";
+                    List<string> errors = new List<string>();
                     foreach (var error in results.Errors)
                     {
-                        errors +=$"{error.PropertyName}: {error.ErrorMessage} \n";
+                        errors.Add($"{error.PropertyName}: {error.ErrorMessage}");
                     }
-                    response.Errors = errors;
-                    return response;
+                    return new ServiceResponse
+                    {
+                        HasSucceeded = false,
+                        Errors = errors
+                    };
                 }
             }
         }
@@ -55,93 +63,131 @@ namespace MovieRental.Core.Logic.Services
             }
         }
 
-        public void Update(IFilmModel fm)
+        public ServiceResponse Update(FilmModel fm)
         {
             using (var uow = new UnitOfWork())
             {
-
-                Film film = FilmMapper.Default.Map<FilmModel, Film>(fm as FilmModel);
-                uow.FilmRepository.Update(film);
-                uow.Save();
+                var validator = new FilmValidator();
+                var results = validator.Validate(fm);
+                if (results.IsValid)
+                {
+                    uow.FilmRepository.Update(FilmMapper.Mapping.Map<FilmModel, Film>(fm as FilmModel));
+                    uow.Save();
+                    return new ServiceResponse { HasSucceeded = true };
+                }
+                else
+                {
+                    List<string> errors = new List<string>();
+                    foreach (var error in results.Errors)
+                    {
+                        errors.Add($"{error.PropertyName}: {error.ErrorMessage}");
+                    }
+                    return new ServiceResponse { HasSucceeded = false, Errors = errors };
+                }
             }
         }
 
-        public IEnumerable<IFilmModel> GetAll()
+        public ServiceDataResponse<IEnumerable<FilmModel>> GetAll()
         {
             using (var uow = new UnitOfWork())
             {
-                IQueryable<Film> dbFilms = uow.FilmRepository.GetAll();
-                IEnumerable<FilmModel> films = FilmMapper.Default.Map<IQueryable<Film>, IEnumerable<FilmModel>>(dbFilms);
-                return films;
+                var repoData = uow.FilmRepository.GetAll();
+                return new ServiceDataResponse<IEnumerable<FilmModel>>
+                {
+                    HasSucceeded = true,
+                    Data = FilmMapper.Mapping.Map<IQueryable<Film>, IEnumerable<FilmModel>>(repoData)
+                };
             }
         }
 
-        public IEnumerable<IFilmModel> GetPaged(SortOrder sortOrder, int page, int pageSize)
+        public ServiceDataResponse<IEnumerable<FilmModel>> GetPaged(SortOrder sortBy, int page, int pageSize)
         {
             using (var uow = new UnitOfWork())
             {
-                IQueryable<Film> dbFilms = uow.FilmRepository.GetAll();
-                switch (sortOrder)
+                var repoData = uow.FilmRepository.GetAll();
+                switch (sortBy)
                 {
                     case SortOrder.Title:
                         {
-                            dbFilms = dbFilms.OrderBy(f => f.Title); ;
+                            repoData = repoData.OrderBy(f => f.Title);
                             break;
                         };
                     case SortOrder.Release:
                         {
-                            dbFilms = dbFilms.OrderBy(f => f.Release); ;
+                            repoData = repoData.OrderBy(f => f.Release); ;
                             break;
                         };
                     case SortOrder.Director:
                         {
-                            dbFilms = dbFilms.OrderBy(f => f.Director);
+                            repoData = repoData.OrderBy(f => f.Director);
                             break;
                         };
                     default:
                         {
-                            dbFilms = dbFilms.OrderBy(f => f.Id);
+                            repoData = repoData.OrderBy(f => f.Id);
                             break;
                         };
                 }
-                var pagedFilms = dbFilms.GetPaged(page, pageSize);
-
-
-                IEnumerable<FilmModel> filmsModel = FilmMapper.Default.Map<IEnumerable<Film>, IEnumerable<FilmModel>>(pagedFilms);
-                return filmsModel;
+                var pagedFilms = repoData.GetPaged(page, pageSize);
+                if (pagedFilms == null)
+                {
+                    return new ServiceDataResponse<IEnumerable<FilmModel>>
+                    {
+                        HasSucceeded = false,
+                        Errors = new List<string> { "Records could not be found" }
+                    };
+                }
+                return new ServiceDataResponse<IEnumerable<FilmModel>>
+                {
+                    HasSucceeded = true,
+                    Data = FilmMapper.Mapping.Map<IEnumerable<Film>, IEnumerable<FilmModel>>(pagedFilms)
+                };
             }
+
         }
 
-
-        public IFilmModel GetById(int id)
+        public ServiceDataResponse<FilmModel> GetById(int id)
         {
             using (var uow = new UnitOfWork())
             {
-                Film film = uow.FilmRepository.GetById(id);
-                FilmModel filmModel = FilmMapper.Default.Map<Film, FilmModel>(film);
-                return filmModel;
+                Film repoData = uow.FilmRepository.GetById(id);
+                if (repoData == null)
+                {
+                    return new ServiceDataResponse<FilmModel>
+                    {
+                        HasSucceeded = false,
+                        Errors = new List<string> { "Record could not be found" }
+                    };
+                }
+                else
+                {
+                    return new ServiceDataResponse<FilmModel>
+                    {
+                        HasSucceeded = true,
+                        Data = FilmMapper.Mapping.Map<Film, FilmModel>(repoData)
+                    };
+                }
             }
+
         }
 
-        public IFilmServiceResponse Delete(int id)
+        public ServiceResponse Delete(int id)
         {
             using (var uow = new UnitOfWork())
             {
-                ServiceResponse response = new ServiceResponse();
                 var entry = uow.FilmRepository.GetById(id);
                 if (entry == null)
                 {
-
-                    response.HasSucceeded = false;
-                    response.Errors = "Record doesn't exist";
-                    return response; ;
+                    return new ServiceResponse
+                    {
+                        HasSucceeded = false,
+                        Errors = new List<string> { "record doesn't exist" },
+                    };
                 }
                 uow.FilmRepository.Delete(id);
                 uow.Save();
-                response.HasSucceeded = false;
-                return response;
+                return new ServiceResponse { HasSucceeded = true };
             }
         }
-
     }
 }

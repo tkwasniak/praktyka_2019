@@ -1,6 +1,5 @@
 ﻿using AutoMapper;
 using MovieRental.Core.Contracts.Models;
-using MovieRental.Core.Logic.Models;
 using MovieRental.Web.Models;
 using System;
 using System.Collections.Generic;
@@ -10,19 +9,13 @@ using System.Web;
 
 namespace MovieRental.Web.Mapper
 {
-    internal sealed class FilmMapper
+    internal class FilmMapper
     {
-        internal static IMapper Default = new MapperConfiguration(cfg =>
+        internal static IMapper Mapping = new MapperConfiguration(cfg =>
         {
-            cfg.CreateMap<FilmViewModel, FilmModel>()
-                .ForMember(dest => dest.Release, opt => opt.MapFrom(f => ConvertStringToDateTime(f.Release)));
-            cfg.CreateMap<FilmModel, FilmViewModel>()
-                .ForMember(dest => dest.Release, opt => opt.MapFrom(f => f.Release.Value.ToString("dd/MM/yyyy", CultureInfo.InvariantCulture)));
+            cfg.CreateMap<FilmViewModel, FilmModel>();
+            cfg.CreateMap<FilmModel, FilmViewModel>();
         }).CreateMapper();
 
-        private static DateTime ConvertStringToDateTime(string date)
-        {
-            return DateTime.ParseExact(date, "dd/MM/yyyy", CultureInfo.InvariantCulture);
-        }
     }
 }

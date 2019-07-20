@@ -13,6 +13,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MovieRental.Core.Contracts"
 EndProject
 Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "Database", "Database\Database.sqlproj", "{CAC4983B-CEF3-4A54-86A9-3A2C77A8DF97}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Common", "Common\Common.csproj", "{E075E9F8-05AD-4C71-A629-BD65E2E8EA23}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MovieRental.Test", "MovieRental.Test\MovieRental.Test.csproj", "{30CD042F-8176-4060-81CA-B07779284D6F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -41,6 +45,14 @@ Global
 		{CAC4983B-CEF3-4A54-86A9-3A2C77A8DF97}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CAC4983B-CEF3-4A54-86A9-3A2C77A8DF97}.Release|Any CPU.Build.0 = Release|Any CPU
 		{CAC4983B-CEF3-4A54-86A9-3A2C77A8DF97}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{E075E9F8-05AD-4C71-A629-BD65E2E8EA23}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E075E9F8-05AD-4C71-A629-BD65E2E8EA23}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E075E9F8-05AD-4C71-A629-BD65E2E8EA23}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E075E9F8-05AD-4C71-A629-BD65E2E8EA23}.Release|Any CPU.Build.0 = Release|Any CPU
+		{30CD042F-8176-4060-81CA-B07779284D6F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{30CD042F-8176-4060-81CA-B07779284D6F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{30CD042F-8176-4060-81CA-B07779284D6F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{30CD042F-8176-4060-81CA-B07779284D6F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

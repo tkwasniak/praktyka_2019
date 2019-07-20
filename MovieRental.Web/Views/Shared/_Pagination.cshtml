@@ -23,7 +23,6 @@
             <a href="@prevHref"><i class="fi-arrow-left"></i></a>
         </li>
 
-
         @for (int i = minPage; i <= maxPage; i++)
         {
             string liPageClass = (Model.CurrentPage == i) ? "current" : "";
@@ -32,7 +31,6 @@
                 <a href="@requestPage">@i</a>
             </li>
         }
-
 
         <li class="@nextClass">
             <a href="@nextPage" ><i class="fi-arrow-right"></i></a>

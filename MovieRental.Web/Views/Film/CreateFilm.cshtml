@@ -2,10 +2,10 @@
 @{
     Layout = null;
 }
-<div id="acc" class="accordion" data-accordion data-allow-all-closed="true">
+<div class="accordion acc"  data-accordion data-allow-all-closed="true">
     <div class="accordion-item">
-        <a id="accItemTitle" class="accordion-title">Create new movie</a>
-        <div id="accItem" class="accordion-content grid-container" data-tab-content>
+        <a class="accItemTitle accordion-title">Create new movie</a>
+        <div class="accItem accordion-content grid-container" data-tab-content>
             @using (Html.BeginForm("", "", FormMethod.Post, new { id = "createFilmForm" }))
             {
                 <div class="grid-x grid-margin-x">

@@ -18,7 +18,7 @@ namespace MovieRental.Data.DAL.Repositories
         public GenericRepository(DbContext context)
         {
             this.context = context;
-            this.dbSet = context.Set<T>(); // WAZNE
+            this.dbSet = context.Set<T>(); 
         }
 
         public DbContext Context

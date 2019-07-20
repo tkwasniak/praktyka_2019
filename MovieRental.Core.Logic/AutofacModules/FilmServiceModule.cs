@@ -1,4 +1,5 @@
 ﻿using Autofac;
+using Common.Logger;
 using MovieRental.Data.DAL.Interfaces;
 using MovieRental.Data.DAL.Repositories;
 using System;
@@ -13,8 +14,9 @@ namespace MovieRental.Core.Logic.AutofacModule
     {
         protected override void Load(ContainerBuilder builder)
         {
-            builder.RegisterType<UnitOfWork>();
             base.Load(builder);
+            builder.RegisterType<UnitOfWork>().AsImplementedInterfaces().InstancePerRequest();
+            builder.RegisterType<LoggerFactory>().AsImplementedInterfaces().InstancePerRequest();
         }
     }
 }

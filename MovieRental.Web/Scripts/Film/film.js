@@ -7,7 +7,8 @@
             $(target).replaceWith(data);
         },
         error: function (result) {
-            alert("Something went wrong");
+            $('#errorDisplayModal p').html(result);
+            $('#errorDisplayModal').foundation('open');
         }
     });
 }
@@ -18,19 +19,20 @@ function createFilm(form, url) {
         method: 'post',
         data: form.serialize(),
         success: function (result) {
-            if (result.hasSucceeded == true) {
+            if (result.HasSucceeded === true) {
                 form.trigger("reset");
-                getFilms("Film/Films", "#displayContentWrapper");
+                var url = $('.current a').prop('href');
+                getFilms(url, "#tableWrapper");
                 displayResultMessage("Movie successfully added!");
             }
             else {
-                $('#errorDisplayModal p').html(result.Errors)
+                $('#errorDisplayModal p').html(result.Errors);
+                $('#errorDisplayModal').foundation('open');
             }
-            ~~
         },
         error: function (result) {
-            //modal;
-            alert("Something went wrong");
+            $('#errorDisplayModal p').html(result);
+            $('#errorDisplayModal').foundation('open');
         }
     });
 }
@@ -42,13 +44,23 @@ function getFilmForUpdate(id, url) {
         method: 'get',
         data: { 'id': id },
         success: function (result) {
-            var form =$("#updateFormWrapper").html(result);
-            $('#updateFormWrapper').removeData('validator').removeData('unobtrusiveValidation');
-            $.validator.unobtrusive.parse(form);
-            $('#updateModal').foundation('open');
+            if (result.response.HasSucceeded) {
+                // putting partial view containing the form into the modal
+                var form = $("#updateFormWrapper").html(result.view);
+                setDatepicker();
+                $('#updateFormWrapper').removeData('validator').removeData('unobtrusiveValidation');
+                $.validator.unobtrusive.parse(form);
+                $('#updateModal').foundation('open');
+
+            }
+            else {
+                $('#errorDisplayModal p').html(result.Errors);
+                $('#errorDisplayModal').foundation('open');
+            }
         },
         error: function (result) {
-            alert('Something went wrong');
+            $('#errorDisplayModal p').html(result);
+            $('#errorDisplayModal').foundation('open');
         }
     });
 }
@@ -59,21 +71,26 @@ function updateFilm(form, url) {
         method: "post",
         data: form.serialize(),
         success: function (result) {
-            if (result.success == true) {
+            if (result.HasSucceeded == true) {
                 $('#updateModal').foundation('close');
-                getFilms("Film/Films", "#displayContentWrapper");
+                var url = $('.current a').prop('href');
+                getFilms(url, "#tableWrapper");
                 displayResultMessage("Movie successfully updated!");
-
             }
             else {
-                //obsluga bledu
+                var form = $("#updateFormWrapper").html(result.view);
+                $('#updateFormWrapper').removeData('validator').removeData('unobtrusiveValidation');
+                $.validator.unobtrusive.parse(form);
+                $('#updateModal').foundation('open');
             }
         },
         error: function () {
-            alert("Something went wrong");
+            $('#errorDisplayModal p').html('Request could not be executed');
+                $('#errorDisplayModal').foundation('open');
         }
     });
 }
+
 
 function deleteFilm(id, url) {
     $.ajax({
@@ -81,19 +98,38 @@ function deleteFilm(id, url) {
         method: "post",
         data: { "id": id },
         success: function (result) {
-            if (result.success == true) {
+            if (result.HasSucceeded == true) {
                 $("#operationResult").html("Film successfully deleted");
-                var target = "#displayContentWrapper";
-                getFilms("Film/Films", target);
+                var target = "#tableWrapper";
+                var url = $('.current a').prop('href');
+                getFilms(url, target);
                 displayResultMessage("Movie successfully deleted!");
             }
             else {
-
+                $('#errorDisplayModal p').html(result);
+                $('#errorDisplayModal').foundation('open')
             }
         },
-        error: function (error) {
-            alert("Something went wrong");
+        error: function () {
+            $('#errorDisplayModal p').html('Request could not be executed');
+            $('#errorDisplayModal').foundation('open')
         }
     });
 };
 
+function clearForm(form) {
+    //reset jQuery Validate's internals
+    $(form).find('input[type=text], textarea').val('');
+
+    //for summary
+    $(form).find('[data-valmsg-summary=true]')
+        .removeClass('validation-summary-valid')
+        .addClass('validation-summary-valid')
+        .find('ul').empty();
+
+    //for individual fields
+    $(form).find('[data-valmsg-replace]')
+        .removeClass('field-validation-error')
+        .addClass('field-validation-valid')
+        .empty();
+};

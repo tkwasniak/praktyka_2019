@@ -1,11 +1,6 @@
 ﻿using MovieRental.Data.DAL.Interfaces;
 using MovieRental.Data.DAL.Models;
 using System;
-using System.Collections.Generic;
-using System.Data.Entity;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace MovieRental.Data.DAL.Repositories
 {
@@ -27,7 +22,7 @@ namespace MovieRental.Data.DAL.Repositories
             }
         }
 
-        public GenericRepository<Film> FilmRepository
+        public IGenericRepository<Film> FilmRepository
         {
             get
             {
@@ -44,20 +39,11 @@ namespace MovieRental.Data.DAL.Repositories
             context.SaveChanges();
         }
 
-        private void Dispose(bool shouldDispose)
-        {
-            if (shouldDispose)
-            {
-                context.Dispose();
-            }
-        }
 
         public void Dispose()
         {
-            Dispose(true);
+            context.Dispose();
             GC.SuppressFinalize(this);
         }
-
-     
     }
 }
